@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Quest- Gamified Learning</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- EFECTOS VISUALES DE IMPACTO -->
+  <div id="screenBlast" class="screen-blast"></div>
+  <div id="bossBeam" class="boss-beam"></div>
+
+  <!-- BARRA SUPERIOR (NAVBAR) -->
+  <header class="top-bar">
+    <div class="brand-logo">
+      <div class="logo-badge">🎓</div>
+      <span>Academic Quest</span>
+    </div>
+
+    <div class="stats-container">
+      <div class="stat-badge brains" title="Energía Mental / Vidas">
+        🧠 <span id="brainCount">20</span>/20
+      </div>
+      <div class="stat-badge gems" title="Gemas / XP">
+        💎 <span id="gemCount">850</span>
+      </div>
+      <div class="stat-badge streak" title="Racha de Días">
+       🔥 <span id="streakCount">14</span>
+      </div>
+
+      <button id="avatarBtn" class="avatar-select-btn">
+        <span>👤 Mascota</span>
+      </button>
+
+      <button id="langBtn" class="lang-btn">
+        <span>🇪🇸 ES</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- CUERPO PRINCIPAL -->
+  <div class="app-body">
+
+    <!-- PANEL IZQUIERDO: CARRERAS -->
+    <div class="majors-sidebar">
+      <div class="sidebar-title" id="txtMajorsTitle">Carreras</div>
+      <div id="majorsList"></div>
+    </div>
+
+    <!-- MAPA CENTRAL: ÁRBOL DE RAMAS -->
+    <div class="study-map-container">
+      <div class="map-header">
+        <h2 id="currentMajorTitle">Medicina</h2>
+        <p id="txtMapSubtitle">Supera las ramas de estudio para desafiar al Guardián del Castillo</p>
+      </div>
+
+      <div class="tree-viewport" id="treeViewport"> 
+        <svg class="tree-svg-connections" id="treeSvg"></svg>
+        <div id="nodesContainer"></div>
+        
+        <!-- AVATAR JUGADOR QUE SALTA -->
+        <div id="playerAvatar" class="player-mascot-avatar"></div>
+      </div>
+    </div>
+
+    <!-- PANEL DERECHO: MASCOTA COMPAÑERA -->
+    <div class="side-companion-card">
+      <div class="speech-bubble" id="companionBubble">
+        ¡Hola! Soy Marcianito. ¡Elige un tema del árbol para repasar juntos!
+      </div>
+      <div class="companion-box" id="sidebarMascotImg"></div>
+      <div class="companion-name-tag" id="companionName">Marcianito 👽</div>
+    </div>
+
+  </div>
+
+  <!-- MODAL DE QUIZ / CASTILLO BOSS -->
+  <div id="quizModal" class="modal-overlay">
+    <div class="quiz-card">
+      <div class="quiz-header">
+        <div style="display: flex; flex-direction: column;">
+          <h3 id="quizTitle">Examen de Rama</h3>
+          <span id="quizSubtitle">Responde correctamente para avanzar</span>
+        </div>
+        <button class="close-modal-btn" onclick="closeQuiz()">✕</button>
+      </div>
+
+      <!-- BARRA DE VIDA DEL BOSS -->
+      <div id="bossHpContainer" style="display: none;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 800; margin-bottom: 0.3rem;">
+          <span id="bossName">Guardián Boss</span>
+          <span id="bossHpTxt">HP: 100/100</span>
+        </div>
+        <div class="boss-hp-bar-container">
+          <div id="bossHpFill" class="boss-hp-fill"></div>
+        </div>
+      </div>
+
+      <div class="question-text" id="questionTxt">Cargando pregunta...</div>
+
+      <div class="options-grid" id="optionsGrid"></div>
+
+      <div class="quiz-footer">
+        <button class="hint-btn" onclick="useHint()">
+          💡 <span id="txtHintBtn">Pista (15 💎)</span>
+        </button>
+        <span class="hint-text-display" id="hintTxt"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL SELECTOR DE AVATAR -->
+  <div id="avatarModal" class="modal-overlay">
+    <div class="quiz-card">
+      <div class="quiz-header">
+        <h3 id="txtAvatarTitle">Selecciona tu Mascota</h3>
+        <button class="close-modal-btn" onclick="closeAvatarModal()">✕</button>
+      </div>
+      <div class="avatar-grid" id="avatarGrid"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
