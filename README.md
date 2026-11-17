@@ -10,4 +10,5 @@ Equipo de Desarrollo
 
 • Nikol Camila Sánchez
 • Cristian Andrés Piedrahíta 
-• Juan Camilo Bolaños (Pendiente)
+• Juan Camilo Bolaños 
+• Javier Alejandro Acosta
